@@ -1,0 +1,706 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JCS Junior Advogados — Atendimento Jurídico</title>
+<meta name="description" content="JCS Junior Advogados. Atendimento e orientação jurídica personalizada. Fale com nossa equipe pelo WhatsApp.">
+
+<!--
+  ============================================================
+  PROJETO INTERNO: MERIDIAN — identidade de código apenas.
+  A marca exibida ao visitante é sempre "JCS Junior Advogados".
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#0E1D3C;
+    --ink-2:#1B2F57;
+    --paper:#F6F5F2;
+    --paper-2:#FFFFFF;
+    --wine:#7391B5;
+    --wine-2:#5A749B;
+    --gold:#7391B5;
+    --slate:#5C6270;
+    --hairline:#DDE0E2;
+    --whatsapp:#25D366;
+    --whatsapp-dark:#1DA851;
+
+    --serif:'Fraunces', Georgia, serif;
+    --sans:'Inter', -apple-system, Segoe UI, sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--sans);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{text-decoration:none;color:inherit;}
+  img{display:block;max-width:100%;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+
+  :focus-visible{outline:2px solid var(--wine); outline-offset:3px;}
+
+  /* ============ HEADER / LETTERHEAD ============ */
+
+  .letterhead{
+    background:var(--paper-2);
+    border-bottom:1px solid var(--hairline);
+  }
+
+  .letterhead .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:20px;
+    padding-bottom:20px;
+    gap:20px;
+  }
+
+  .brand{display:flex;align-items:center;gap:14px;}
+
+  .brand-mark{
+    width:52px;height:52px;
+    border-radius:5px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+    flex-shrink:0;
+    background:var(--ink);
+  }
+
+  .brand-mark img{width:100%;height:100%;object-fit:cover;}
+
+  .brand-text .name{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:18px;
+    letter-spacing:0.2px;
+    color:var(--ink);
+  }
+
+  .brand-text .kicker{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:2px;
+  }
+
+  .letterhead nav{display:flex;align-items:center;gap:28px;}
+
+  .letterhead nav a{
+    font-size:13.5px;
+    font-weight:500;
+    color:var(--ink-2);
+    position:relative;
+  }
+
+  .letterhead nav a.contact-link{
+    display:none;
+  }
+
+  @media (min-width:720px){
+    .letterhead nav a.contact-link{display:inline;}
+  }
+
+  .letterhead nav a::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-4px;
+    height:1px; background:var(--wine);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .2s ease;
+  }
+  .letterhead nav a:hover::after{transform:scaleX(1);}
+
+  /* ============ HERO ============ */
+
+  .hero{
+    padding:76px 0 88px;
+    position:relative;
+  }
+
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+
+  .ref-code{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.5px;
+    color:var(--slate);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .ref-code::before{
+    content:"§";
+    color:var(--wine);
+    font-family:var(--serif);
+    font-size:15px;
+  }
+
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(32px,4.4vw,50px);
+    line-height:1.14;
+    letter-spacing:-0.3px;
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--wine);
+  }
+
+  .hero p.lead{
+    font-size:16.5px;
+    color:#3B3A34;
+    max-width:520px;
+    margin-bottom:32px;
+  }
+
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px;}
+
+  .btn-whatsapp{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--whatsapp);
+    color:#0E3B22;
+    font-weight:600;
+    font-size:15px;
+    padding:14px 24px;
+    border-radius:6px;
+    transition:background .18s ease, transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04);
+  }
+
+  .btn-whatsapp:hover{
+    background:var(--whatsapp-dark);
+    transform:translateY(-1px);
+    box-shadow:0 6px 16px -6px rgba(29,168,81,0.55);
+  }
+
+  .btn-whatsapp svg{width:18px;height:18px;flex-shrink:0;}
+
+  .alt-contact{
+    font-size:13px;
+    color:var(--slate);
+  }
+
+  .alt-contact a{
+    color:var(--ink-2);
+    font-weight:500;
+    border-bottom:1px solid var(--hairline);
+  }
+  .alt-contact a:hover{border-color:var(--ink-2);}
+
+  /* hero image / plate */
+
+  .plate{
+    position:relative;
+    border:1px solid var(--hairline);
+    border-radius:4px;
+    background:var(--paper-2);
+    padding:10px;
+  }
+
+  .plate-frame{
+    min-height:360px;
+    border-radius:2px;
+    overflow:hidden;
+    background:#EDEAE2;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+
+  /* Substitua este bloco pela imagem real: <img src="escritorio.jpg" alt="JCS Junior Advogados"> */
+  .plate-frame img{width:100%;height:100%;min-height:360px;object-fit:cover;}
+
+  .plate-placeholder{
+    text-align:center;
+    color:#8B8A80;
+    padding:30px;
+    font-size:13.5px;
+  }
+  .plate-placeholder strong{
+    display:block;
+    font-family:var(--serif);
+    font-size:15px;
+    color:#5B594F;
+    margin-bottom:6px;
+    font-weight:500;
+  }
+
+  .plate-caption{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 4px 2px;
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--slate);
+    letter-spacing:0.3px;
+  }
+
+  /* ============ INTRO STRIP ============ */
+
+  .intro{
+    background:var(--ink);
+    color:#EDEAE0;
+  }
+
+  .intro .wrap{
+    padding:56px 28px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  @media (min-width:820px){
+    .intro .wrap{grid-template-columns:0.9fr 1.5fr; align-items:start;}
+  }
+
+  .intro h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:26px;
+    line-height:1.25;
+    color:#FFFDF8;
+  }
+
+  .intro-points{
+    display:grid;
+    gap:20px;
+  }
+
+  @media (min-width:560px){
+    .intro-points{grid-template-columns:repeat(3,1fr);}
+  }
+
+  .intro-point .label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+
+  .intro-point p{
+    font-size:14px;
+    color:#CFCDC3;
+  }
+
+  /* ============ ÁREAS — clauses ============ */
+
+  .areas{padding:88px 0 80px;}
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+
+  .section-head .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--wine);
+    margin-bottom:10px;
+  }
+
+  .section-head h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:30px;
+    color:var(--ink);
+    margin-bottom:12px;
+  }
+
+  .section-head p{color:var(--slate); font-size:15px;}
+
+  .clauses{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+    border-radius:6px;
+    overflow:hidden;
+  }
+
+  @media (max-width:860px){
+    .clauses{grid-template-columns:1fr;}
+  }
+
+  .clause{
+    background:var(--paper-2);
+    padding:32px 28px;
+    transition:background .18s ease;
+  }
+  .clause:hover{background:#FFFEFC;}
+
+  .clause .article{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:14px;
+    color:var(--wine);
+    margin-bottom:16px;
+    display:inline-block;
+    border-bottom:1px solid var(--wine);
+    padding-bottom:3px;
+  }
+
+  .clause h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:19px;
+    margin-bottom:10px;
+    color:var(--ink);
+  }
+
+  .clause p{font-size:14px; color:#4B4A43;}
+
+  /* ============ COMO FUNCIONA — sequência real ============ */
+
+  .process{
+    background:var(--paper-2);
+    border-top:1px solid var(--hairline);
+    border-bottom:1px solid var(--hairline);
+  }
+
+  .process .wrap{padding:80px 28px;}
+
+  .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:36px;
+    margin-top:44px;
+  }
+
+  @media (max-width:860px){
+    .steps{grid-template-columns:1fr; gap:30px;}
+  }
+
+  .step{position:relative; padding-left:6px;}
+
+  .step .num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--slate);
+    margin-bottom:14px;
+  }
+  .step .num b{color:var(--wine); font-size:13px;}
+
+  .step h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:18px;
+    margin-bottom:8px;
+    color:var(--ink);
+  }
+
+  .step p{font-size:14px; color:var(--slate);}
+
+  /* ============ ATENDIMENTO FINAL ============ */
+
+  .attendance{
+    background:var(--ink);
+    color:#F3F1EA;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .attendance::before{
+    content:"§";
+    position:absolute;
+    font-family:var(--serif);
+    font-size:340px;
+    color:rgba(255,255,255,0.03);
+    right:-40px; top:-90px;
+    line-height:1;
+    pointer-events:none;
+  }
+
+  .attendance .wrap{
+    padding:86px 28px;
+    max-width:760px;
+    text-align:left;
+    position:relative;
+  }
+
+  .attendance .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+
+  .attendance h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:32px;
+    margin-bottom:16px;
+    line-height:1.2;
+  }
+
+  .attendance p{
+    color:#C9C7BC;
+    font-size:15.5px;
+    max-width:520px;
+    margin-bottom:32px;
+  }
+
+  .attendance .cta-row{align-items:center;}
+
+  /* ============ FOOTER ============ */
+
+  footer{background:var(--paper-2); border-top:1px solid var(--hairline);}
+
+  footer .wrap{
+    padding:40px 28px;
+    display:grid;
+    gap:28px;
+  }
+
+  @media (min-width:760px){
+    footer .wrap{grid-template-columns:1.3fr 1fr 1fr;}
+  }
+
+  .foot-block .name{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:16px;
+    margin-bottom:8px;
+  }
+
+  .foot-block p, .foot-block li{
+    font-size:12.5px;
+    color:var(--slate);
+    line-height:1.7;
+  }
+
+  .foot-block h4{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.8px;
+    text-transform:uppercase;
+    color:#8B8A80;
+    margin-bottom:10px;
+  }
+
+  .foot-block ul{list-style:none;}
+
+  .foot-bottom{
+    border-top:1px solid var(--hairline);
+  }
+
+  .foot-bottom .wrap{
+    padding:18px 28px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:10px;
+    font-size:11.5px;
+    color:#9A988D;
+  }
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     CABEÇALHO
+===================================================== -->
+<header class="letterhead">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="logo.png" alt="JCS Junior Advogados & Associados">
+      </div>
+      <div class="brand-text">
+        <div class="name">JCS Junior Advogados</div>
+        <div class="kicker">Advogados &amp; Associados</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#atendimento" class="contact-link">Atendimento</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =====================================================
+       HERO
+  ===================================================== -->
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="hero-content">
+        <div class="ref-code">JCS JUNIOR ADVOGADOS — ATENDIMENTO INSTITUCIONAL</div>
+
+        <h1>Orientação jurídica conduzida com <em>clareza</em> e responsabilidade.</h1>
+
+        <p class="lead">
+          Analisamos sua situação com atenção antes de indicar qualquer caminho.
+          Fale com nossa equipe e entenda, sem compromisso, como podemos ajudar.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn-whatsapp" href="https://wa.me/5511964621424" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2Zm5.8 14.03c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.61-.14.24.09 1.55.73 1.82.86.26.14.44.2.5.31.06.12.06.65-.18 1.32Z"/></svg>
+            Falar com a equipe pelo WhatsApp
+          </a>
+          <div class="alt-contact">
+            ou ligue <a href="tel:+5511964621424">(11) 96462-1424</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       INTRO / CONFIANÇA
+  ===================================================== -->
+  <section class="intro">
+    <div class="wrap">
+      <h2>Um atendimento inicial que serve para entender o seu caso — não para vender uma solução pronta.</h2>
+
+      <div class="intro-points">
+        <div class="intro-point">
+          <div class="label">Análise</div>
+          <p>Escutamos os detalhes antes de indicar qualquer providência.</p>
+        </div>
+        <div class="intro-point">
+          <div class="label">Transparência</div>
+          <p>Explicamos possibilidades e prazos em linguagem acessível.</p>
+        </div>
+        <div class="intro-point">
+          <div class="label">Confidencialidade</div>
+          <p>As informações compartilhadas são tratadas com sigilo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA FINAL
+  ===================================================== -->
+  <section class="attendance" id="atendimento">
+    <div class="wrap">
+      <div class="eyebrow">Atendimento</div>
+      <h2>Pronto para conversar sobre sua situação?</h2>
+      <p>Envie uma mensagem para a JCS Junior Advogados e receba orientação de quem vai analisar seu caso com atenção.</p>
+
+      <div class="cta-row">
+        <a class="btn-whatsapp" href="https://wa.me/5511964621424" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.87 9.87 0 0 0 4.75 1.21h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2Zm5.8 14.03c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.6-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.11.31.02.5-.09.19-.14.31-.28.48-.14.16-.29.36-.42.49-.14.14-.28.28-.12.56.16.28.71 1.17 1.53 1.9 1.05.93 1.93 1.22 2.21 1.36.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.36-.23.61-.14.24.09 1.55.73 1.82.86.26.14.44.2.5.31.06.12.06.65-.18 1.32Z"/></svg>
+          Iniciar atendimento pelo WhatsApp
+        </a>
+        <div class="alt-contact" style="color:#B9B7AC;">
+          ou fale pelo WhatsApp: <a href="https://wa.me/5511964621424" target="_blank" rel="noopener noreferrer" style="color:#EDEAE0; border-color:rgba(255,255,255,0.25);">(11) 96462-1424</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =====================================================
+     RODAPÉ
+===================================================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-block">
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+        <img src="logo.png" alt="JCS Junior Advogados" style="width:34px;height:34px;border-radius:4px;">
+        <div class="name" style="margin-bottom:0;">JCS Junior Advogados</div>
+      </div>
+      <p>
+        Sociedade de advogados dedicada à orientação jurídica personalizada.
+        Substitua este texto por uma descrição real da sociedade, se desejar.
+      </p>
+    </div>
+
+    <div class="foot-block">
+      <h4>Contato</h4>
+      <ul>
+        <li>WhatsApp: <a href="https://wa.me/5511964621424" target="_blank" rel="noopener noreferrer">(11) 96462-1424</a></li>
+        <li>Telefone: <a href="tel:+5511964621424">(11) 96462-1424</a></li>
+        <li>contato@jcsadvogados.com.br</li>
+      </ul>
+    </div>
+
+    <div class="foot-block">
+      <h4>Institucional</h4>
+      <ul>
+        <li>OAB/UF nº 00.000 — substituir pelo registro real</li>
+        <li>Endereço: Rua Exemplo, 000 — Cidade/UF</li>
+        <li><a href="#" style="color:var(--ink-2); border-bottom:1px solid var(--hairline);">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>© 2026 JCS Junior Advogados — todos os direitos reservados.</span>
+      <span>As informações desta página têm caráter institucional.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+<script>
+  /*
+   * Codinome interno do projeto: MERIDIAN
+   * (identidade de desenvolvimento — não é exibida ao visitante,
+   * que sempre vê a marca "JCS Junior Advogados").
+   */
+  const MERIDIAN = {
+    project: "jcs-landing",
+    focus: "whatsapp-conversion",
+    version: "1.0"
+  };
+
+  // Log discreto apenas para verificação em ambiente de desenvolvimento.
+  console.info(`[${MERIDIAN.project}] build ${MERIDIAN.version}`);
+</script>
+
+</body>
+</html>
